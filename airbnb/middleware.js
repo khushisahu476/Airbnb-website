@@ -39,7 +39,7 @@ module.exports.isOwner = async(req ,res, next) =>{
 module.exports.validateListing  = (req ,res , next)=>{
     
     let {error} = listingSchema.validate(req.body);
-     console.log(req.body);
+    console.log(req.body);
     if(error){
         let errMsg = error.details.map((el)=> el.message).join()
         throw new ExpressError(400, error);
@@ -51,8 +51,9 @@ module.exports.validateListing  = (req ,res , next)=>{
 
 //creating middleware for review 
 module.exports.validateReview  = (req ,res , next)=>{
-    console.log(reviewSchema)
+    //console.log(reviewSchema)
     let {error} = reviewSchema.validate(req.body);
+    console.log(req.body);
     if(error){
         let errMsg = error.details.map((el)=> el.message).join()
         throw new ExpressError(400, error);

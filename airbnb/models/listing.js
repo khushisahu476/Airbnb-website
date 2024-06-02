@@ -14,19 +14,13 @@ const listingSchema = new Schema({
       required:true,
     },
     image : {
-      filename: {
-        type:String,
-        default: "filename",
-      },
-      url: {
-       type:String,
-      },
+      type:String,
     },
     price : {
        type:Number,
        required:true,
     },
-    location : {
+    location :{
       type:String,
       required:true,
     },
