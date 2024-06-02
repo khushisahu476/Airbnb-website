@@ -1,4 +1,4 @@
-const Listing = require("../models/listing");
+
 
 const sampleListings = [
   {

@@ -81,16 +81,15 @@ app.use("/" , userRouter);
 
 
 //for all routs
-app.all("*",(req ,res, next) =>{
-    next(new ExpressError(404 ,"Page not found!"));
-});
+// app.all("*",(req ,res, next) =>{
+//     next(new ExpressError(404 ,"Page not found!"));
+// });
 
-
-//error handle
-app.use((err , req , res, next) => {
-    let {statusCode = 500, message = "Some error ocuurred here!"} = err;
-    res.status(statusCode).render("error.ejs",{message});
-})
+// //error handle
+// app.use((err , req , res, next) => {
+//     let {statusCode = 500, message = "Some error ocuurred here!"} = err;
+//     res.status(statusCode).render("error.ejs",{message});
+// })
 
 app.listen(8080,(req,res) => {
     console.log("Server is listening to  port 8080");

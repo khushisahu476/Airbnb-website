@@ -6,29 +6,39 @@ const { isLoggedIn, isOwner } = require("../middleware.js");
 const {validateListing} = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
 
+
+// router
+//   .route("/")
+//   .get("/", wrapAsync(listingController.index))
+//   .post("/", 
+//     isLoggedIn,
+//     isOwner,
+//     validateListing,
+//     wrapAsync(listingController.createListing)
+//   );
+
+
+
 //index route
-router.get("/", wrapAsync(listingController.index)
-);
+router.get("/", wrapAsync(listingController.index));
 // new Listing 
 router.get("/new",isLoggedIn ,listingController.renderNewForm);
 
 // Show details of listing
-router.get("/:id",wrapAsync(listingController.showListings)
-);
+router.get("/:id",wrapAsync(listingController.showListings));
 
 
 //CREATE ROUTE
 router.post("/", 
     isLoggedIn,
-    isOwner,
-    //validateListing,
+    validateListing,
     wrapAsync(listingController.createListing)
 );
 //edit route
 router.get("/:id/edit", 
     isLoggedIn,
     isOwner,
-    //validateListing,
+    validateListing,
     wrapAsync(listingController.rendrEditForm)
 );
 
@@ -36,7 +46,7 @@ router.get("/:id/edit",
 router.put("/:id", 
      isLoggedIn,
      isOwner,
-    //validateListing,
+    validateListing,
     wrapAsync(listingController.updateListing)
 );
 
@@ -45,7 +55,7 @@ router.put("/:id",
 router.delete("/:id",
     isLoggedIn,
     isOwner,
-    //validateListing,
+    validateListing,
     wrapAsync(listingController.destroyListing)
 );
 
